@@ -1,4 +1,5 @@
 import { type Meal } from "../utils/types";
+import { Link } from "@tanstack/react-router";
 
 type RecipeCardProps = { meal: Meal };
 
@@ -48,9 +49,17 @@ export function RecipeCard({ meal }: RecipeCardProps) {
       )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-        <h2 style={{ margin: 0, fontWeight: 600, fontSize: "18px" }}>
-          {title}
-        </h2>
+        <Link
+          to="/recipe/$id"
+          params={{
+            id: meal.idMeal,
+          }}
+        >
+          <h2 style={{ margin: 0, fontWeight: 600, fontSize: "18px" }}>
+            {title}
+          </h2>
+        </Link>
+
         <div style={{ color: "#475467", fontSize: "14px" }}>
           {meal.strCategory ?? "Unknown category"} ·{" "}
           {meal.strArea ?? "Unknown area"}

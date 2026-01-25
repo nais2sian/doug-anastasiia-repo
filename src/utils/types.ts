@@ -20,6 +20,11 @@ export type Meal = {
   [key: string]: NullableString;
 };
 
+export type Ingredient = {
+  name: string 
+  measure: string
+}
+
 export type RecipeApiResponse = {
   meals: Meal[] | null;
 };
